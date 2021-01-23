@@ -1,6 +1,6 @@
 package revisit;
 
-public class ArithmeticProgression extends Progression{
+public class ArithmeticProgression extends AbstractProgression{
 
     private long increment;
     public ArithmeticProgression(long inc,long initialVal) {

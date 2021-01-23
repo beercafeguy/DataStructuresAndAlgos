@@ -5,10 +5,10 @@ public class APDemo {
         Progression baseProgression=new Progression();
         baseProgression.printProgression(10);
 
-        Progression simpleAp=new ArithmeticProgression(4);
+        AbstractProgression simpleAp=new ArithmeticProgression(4);
         simpleAp.printProgression(10);
 
-        Progression fullAp=new ArithmeticProgression(4,530);
+        AbstractProgression fullAp=new ArithmeticProgression(4,530);
         fullAp.printProgression(10);
     }
 }
