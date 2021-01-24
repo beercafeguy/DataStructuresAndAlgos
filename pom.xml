@@ -14,6 +14,7 @@
 
     <modules>
         <module>arrays</module>
+        <module>restart</module>
     </modules>
 
     <properties>
