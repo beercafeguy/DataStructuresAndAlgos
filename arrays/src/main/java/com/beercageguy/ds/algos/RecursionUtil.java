@@ -6,11 +6,11 @@ public class RecursionUtil {
         return factLoop(input);
     }
 
-    private static int factInternal(int input){
+    public static int factRecursive(int input){
         if (input <= 1){
-            return input;
+            return 1;
         }else{
-            return factInternal(input-1);
+            return input * factRecursive(input-1);
         }
     }
 
