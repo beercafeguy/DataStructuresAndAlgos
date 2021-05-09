@@ -1,9 +1,9 @@
 package com.beercafeguy.ds.strings;
 
-import java.io.*;
-import java.util.Arrays;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.HashMap;
-import java.util.Map;
 
 public class FirstNonRepCharApp {
     public static void main(String[] args) throws IOException {
@@ -16,6 +16,7 @@ public class FirstNonRepCharApp {
         int usingArrIndex=getFirstNonRepeatUsingArray(input);
         System.out.println((usingMap==null)? "-1" : usingMap);
         System.out.println("Index :"+usingArrIndex);
+        System.out.println("Index 256:"+getFirstNonRepeatUsingArray256(input));
     }
 
     private static Character getFirstNonRepeat(String string){
@@ -56,5 +57,30 @@ public class FirstNonRepCharApp {
             }
         }
         return index;
+    }
+
+    private static int getFirstNonRepeatUsingArray256(String str){
+        int[] holder=new int[256];
+        String string= str.toLowerCase();
+
+        for (int i = 0; i < 256; i++){
+            holder[i]=-1;
+        }
+
+        for (int j = 0; j < string.length(); j++) {
+            if (holder[string.charAt(j)]==-1) {
+                holder[string.charAt(j)]=j;
+            }else{
+                holder[string.charAt(j)]=-1;
+            }
+        }
+
+        int index = Integer.MAX_VALUE;
+        for (int i = 0; i < 256; i++){
+            if(holder[i]>0){
+                index=Math.min(index,holder[i]);
+            }
+        }
+        return (index==Integer.MAX_VALUE) ? -1 :index;
     }
 }
