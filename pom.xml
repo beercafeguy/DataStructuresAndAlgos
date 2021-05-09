@@ -15,6 +15,7 @@
     <modules>
         <module>arrays</module>
         <module>restart</module>
+        <module>common-problems</module>
     </modules>
 
     <properties>
