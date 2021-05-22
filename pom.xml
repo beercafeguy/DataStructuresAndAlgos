@@ -16,6 +16,7 @@
         <module>arrays</module>
         <module>restart</module>
         <module>common-problems</module>
+        <module>linkedlist</module>
     </modules>
 
     <properties>
