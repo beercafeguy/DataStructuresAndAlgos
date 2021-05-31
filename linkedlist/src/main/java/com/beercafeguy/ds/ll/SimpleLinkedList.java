@@ -38,7 +38,7 @@ public class SimpleLinkedList {
                 currentNode=currentNode.getNext();
             }
             if(currentNode!=null){
-                previousNode=currentNode.getNext();
+                previousNode.setNext(currentNode.getNext());
                 System.out.println(number+" found and deleted.");
             }else{
                 System.out.println(number+" not found");
