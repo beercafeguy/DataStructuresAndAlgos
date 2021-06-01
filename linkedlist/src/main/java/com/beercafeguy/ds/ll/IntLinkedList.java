@@ -22,7 +22,24 @@ public class IntLinkedList {
         ill.insert(7);
         ill.findMiddle();
         ill.print();
+        System.out.println("Second last element: "+ill.findSecondLast());
 
+    }
+
+    public int findSecondLast(){
+        Node current=head;
+        if(head.next==null){
+            return -1;
+        }else if (head.next.next==null){
+            return head.next.data;
+        }else{
+            Node plusTwo=head.next.next;
+            while(plusTwo!=null){
+                current=current.next;
+                plusTwo=plusTwo.next;
+            }
+            return current.data;
+        }
     }
 
     public int findMiddle(){
