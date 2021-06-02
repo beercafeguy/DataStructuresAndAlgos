@@ -3,14 +3,20 @@ package com.beercafeguy.ds.ll;
 public class IntLinkedList {
 
     Node head;
+    private int size;
+
+    public IntLinkedList() {
+        this.size = 0;
+    }
 
     public static void main(String[] args) {
 
         IntLinkedList ill = new IntLinkedList();
-        System.out.println("Adding elements");
-        ill.addElements();
-        System.out.println("Elements added.");
-        ill.print();
+        //System.out.println("Adding elements");
+        //ill.addElements();
+        //System.out.println("Elements added.");
+        //ill.print();
+        ill.insert(3);
         ill.insert(4);
         System.out.println("Print after insertion");
         ill.print();
@@ -20,36 +26,71 @@ public class IntLinkedList {
         ill.insert(5);
         ill.insert(6);
         ill.insert(7);
+        ill.insert(7);
         ill.findMiddle();
         ill.print();
-        System.out.println("Second last element: "+ill.findSecondLast());
-
+        System.out.println("Second last element: " + ill.findSecondLast());
+        System.out.println("Size of LL: " + ill.size());
+        System.out.println("Num Occurrences of 7: " + ill.numOccurrences(7));
+        System.out.println("Num Occurrences of 7: " + ill.countRec(7));
+        System.out.println("Num Occurrences of 6: " + ill.countRec(6));
+        System.out.println("Num Occurrences of 10: " + ill.countRec(10));
     }
 
-    public int findSecondLast(){
-        Node current=head;
-        if(head.next==null){
-            return -1;
-        }else if (head.next.next==null){
-            return head.next.data;
+    public int countRec(int key){
+        return count(head,key,0);
+    }
+    private int count(Node head,int key,int frequency){
+        if(head==null){
+            return frequency;
         }else{
-            Node plusTwo=head.next.next;
-            while(plusTwo!=null){
-                current=current.next;
-                plusTwo=plusTwo.next;
+            if(head.data==key){
+                return count(head.next,key,frequency+1);
+            }else{
+                return count(head.next,key,frequency);
+            }
+        }
+    }
+    public int numOccurrences(int key) {
+        int num = 0;
+        Node last = head;
+        while (last != null) {
+            if (last.data == key) {
+                num++;
+            }
+            last = last.next;
+        }
+        return num;
+    }
+
+    public int size() {
+        return size;
+    }
+
+    public int findSecondLast() {
+        Node current = head;
+        if (head.next == null) {
+            return -1;
+        } else if (head.next.next == null) {
+            return head.next.data;
+        } else {
+            Node plusTwo = head.next.next;
+            while (plusTwo != null) {
+                current = current.next;
+                plusTwo = plusTwo.next;
             }
             return current.data;
         }
     }
 
-    public int findMiddle(){
-        Node singleStep=head;
-        Node doubleStep=head;
-        while(doubleStep!=null && doubleStep.next!=null){
-            singleStep=singleStep.next;
-            doubleStep=doubleStep.next.next;
+    public int findMiddle() {
+        Node singleStep = head;
+        Node doubleStep = head;
+        while (doubleStep != null && doubleStep.next != null) {
+            singleStep = singleStep.next;
+            doubleStep = doubleStep.next.next;
         }
-        System.out.println("Middle element is "+singleStep.data);
+        System.out.println("Middle element is " + singleStep.data);
         return singleStep.data;
     }
 
@@ -64,6 +105,7 @@ public class IntLinkedList {
             }
             last.next = inputNode;
         }
+        size++;
     }
 
     public void delete(int key) {
@@ -72,6 +114,7 @@ public class IntLinkedList {
         if (head != null) {
             if (head.data == key) {
                 head = head.next;
+                size--;
             } else {
                 while (current != null && current.data != key) {
                     prev = current;
@@ -79,6 +122,7 @@ public class IntLinkedList {
                 }
                 if (current != null) {
                     prev.next = current.next;
+                    size--;
                 }
             }
         }
@@ -86,7 +130,7 @@ public class IntLinkedList {
 
     public void print() {
         Node last = head;
-        while (last!= null) {
+        while (last != null) {
             System.out.println(last.data);
             last = last.next;
         }
