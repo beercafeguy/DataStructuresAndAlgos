@@ -1,5 +1,8 @@
 package com.beercafeguy.ds.ll;
 
+import java.util.HashSet;
+import java.util.Set;
+
 public class IntLinkedList {
 
     Node head;
@@ -9,34 +12,18 @@ public class IntLinkedList {
         this.size = 0;
     }
 
-    public static void main(String[] args) {
-
-        IntLinkedList ill = new IntLinkedList();
-        //System.out.println("Adding elements");
-        //ill.addElements();
-        //System.out.println("Elements added.");
-        //ill.print();
-        ill.insert(3);
-        ill.insert(4);
-        System.out.println("Print after insertion");
-        ill.print();
-        System.out.println("Delete operation");
-        ill.delete(4);
-        ill.print();
-        ill.insert(5);
-        ill.insert(6);
-        ill.insert(7);
-        ill.insert(7);
-        ill.findMiddle();
-        ill.print();
-        System.out.println("Second last element: " + ill.findSecondLast());
-        System.out.println("Size of LL: " + ill.size());
-        System.out.println("Num Occurrences of 7: " + ill.numOccurrences(7));
-        System.out.println("Num Occurrences of 7: " + ill.countRec(7));
-        System.out.println("Num Occurrences of 6: " + ill.countRec(6));
-        System.out.println("Num Occurrences of 10: " + ill.countRec(10));
+    public boolean hasLoop(){
+        Set<Node> nodes=new HashSet<>();
+        Node last=head;
+        while(last!=null){
+            if(nodes.contains(last)){
+                return true;
+            }
+            nodes.add(last);
+            last=last.next;
+        }
+        return false;
     }
-
     public int countRec(int key){
         return count(head,key,0);
     }
@@ -134,15 +121,6 @@ public class IntLinkedList {
             System.out.println(last.data);
             last = last.next;
         }
-    }
-
-    public Node addElements() {
-        this.head = new Node(1);
-        Node second = new Node(2);
-        Node third = new Node(3);
-        head.next = second;
-        head.next.next = third;
-        return this.head;
     }
 
     class Node {
