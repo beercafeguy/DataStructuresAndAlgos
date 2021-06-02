@@ -13,6 +13,25 @@ public class FindLoopLinkedListApp {
         System.out.println("Is Looped: " + app.hasLoop(nonLoopedHead));
         System.out.println("Is Looped two pointer: " + app.findLoopTwoPointer(loopedHead));
         System.out.println("Is Looped two pointer: " + app.findLoopTwoPointer(nonLoopedHead));
+
+        System.out.println("Is Looped Extra Node: " + app.findLoopExtraNode(loopedHead));
+        System.out.println("Is Looped Extra Node: " + app.findLoopExtraNode(nonLoopedHead));
+    }
+
+    public boolean findLoopExtraNode(Node head) {
+        Node tmpNode = new Node(-1);
+        boolean isLooped = false;
+        Node last=head;
+        while (last!=null) {
+            Node tmp=last.next;
+            last.next=tmpNode;
+            last=tmp;
+            if(last==tmpNode){
+                isLooped=true;
+                break;
+            }
+        }
+        return isLooped;
     }
 
     public boolean findLoopTwoPointer(Node head) {
