@@ -5,6 +5,22 @@ public class SortedLinkedList {
     Node head;
     private int size;
 
+    public Node dropDuplicates(){
+        if(head!=null){
+            Node prev=head;
+            Node current=head.next;
+            while(current!=null){
+                if(prev.data== current.data){
+                    prev.next=current.next;
+                    current=current.next;
+                }else{
+                    prev=current;
+                    current=current.next;
+                }
+            }
+        }
+        return head;
+    }
     public Node insert(int input){
         Node inputNode=new Node(input);
         if(head==null){
