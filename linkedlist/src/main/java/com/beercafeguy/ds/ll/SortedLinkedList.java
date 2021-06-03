@@ -6,7 +6,7 @@ public class SortedLinkedList {
     private int size;
 
     public Node dropDuplicates(){
-            Node current=head.next;
+            Node current=head;
             while(current!=null){
                 Node nextTmp=current;
                 while(nextTmp!=null && current.data==nextTmp.data){
