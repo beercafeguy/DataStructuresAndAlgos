@@ -12,6 +12,18 @@ public class IntLinkedList {
         this.size = 0;
     }
 
+    public void reverse(){
+        Node previous=null;
+        Node current=head;
+        Node next=null;
+        while(current!=null){
+            next=current.next; // temp holder for next node
+            current.next=previous; // current node points to previous node
+            previous=current; // current node becomes previous node for next node
+            current=next; // next node becomes current node
+        }
+        head=previous;
+    }
     public boolean isPalindrome(){
         SimpleStack<Integer> stack=new SimpleStack<>();
         Node last=head;

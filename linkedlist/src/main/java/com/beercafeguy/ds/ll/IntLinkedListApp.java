@@ -2,8 +2,10 @@ package com.beercafeguy.ds.ll;
 
 public class IntLinkedListApp {
     public static void main(String[] args) {
-        checkPalindrome();
-        checkNotPalindrome();
+        //checkPalindrome();
+        //checkNotPalindrome();
+        reverseLinkedList();
+
         //IntLinkedList ill = new IntLinkedList();
         //System.out.println("Adding elements");
         //ill.addElements();
@@ -49,5 +51,16 @@ public class IntLinkedListApp {
         ill.insert(1);
         ill.print();
         System.out.println("Is Palindrome :"+ill.isPalindrome());
+    }
+
+    public static void reverseLinkedList(){
+        IntLinkedList ill = new IntLinkedList();
+        ill.insert(1);
+        ill.insert(2);
+        ill.insert(3);
+        ill.insert(1);
+        ill.print();
+        ill.reverse();
+        ill.print();
     }
 }
