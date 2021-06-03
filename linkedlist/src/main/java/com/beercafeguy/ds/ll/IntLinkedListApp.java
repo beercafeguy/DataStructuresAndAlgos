@@ -5,7 +5,8 @@ public class IntLinkedListApp {
         //checkPalindrome();
         //checkNotPalindrome();
         //reverseLinkedList();
-        dedupeLinkedList();
+        //dedupeLinkedList();
+        printReverseLinkedList();
         //IntLinkedList ill = new IntLinkedList();
         //System.out.println("Adding elements");
         //ill.addElements();
@@ -73,5 +74,15 @@ public class IntLinkedListApp {
         ill.print();
         ill.dedupe();
         ill.print();
+    }
+
+    public static void printReverseLinkedList(){
+        IntLinkedList ill = new IntLinkedList();
+        ill.insert(1);
+        ill.insert(2);
+        ill.insert(3);
+        ill.insert(1);
+        ill.print();
+        ill.printReverse();
     }
 }

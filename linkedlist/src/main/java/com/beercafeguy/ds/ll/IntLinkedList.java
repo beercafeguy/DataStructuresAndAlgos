@@ -12,6 +12,15 @@ public class IntLinkedList {
         this.size = 0;
     }
 
+    public void printReverse(){
+        printReverse(head);
+    }
+    private void printReverse(Node node){
+        if(node==null)
+            return;
+        printReverse(node.next);
+        System.out.print(node.data+" ");
+    }
     public void dedupe(){
         if(head!=null){
             Set<Integer> hashSet=new HashSet<>();
@@ -179,6 +188,13 @@ public class IntLinkedList {
         public Node(int data) {
             this.data = data;
             this.next = null;
+        }
+
+        @Override
+        public String toString() {
+            return "Node{" +
+                    "data=" + data +
+                    '}';
         }
     }
 }
