@@ -12,6 +12,25 @@ public class IntLinkedList {
         this.size = 0;
     }
 
+    public boolean isPalindrome(){
+        SimpleStack<Integer> stack=new SimpleStack<>();
+        Node last=head;
+        while(last!=null){
+            stack.push(last.data);
+            last=last.next;
+        }
+        last=head;
+        while(last!=null){
+            int fromStack=stack.pop();
+            int fromList=last.data;
+            System.out.println("fromStack:"+fromStack+" | fromList:"+fromList);
+            if(fromStack!=fromList){
+                return false;
+            }
+            last=last.next;
+        }
+        return true;
+    }
     public boolean hasLoop(){
         Set<Node> nodes=new HashSet<>();
         Node last=head;
@@ -118,9 +137,10 @@ public class IntLinkedList {
     public void print() {
         Node last = head;
         while (last != null) {
-            System.out.println(last.data);
+            System.out.print(last.data+" ");
             last = last.next;
         }
+        System.out.println();
     }
 
     class Node {
