@@ -6,19 +6,15 @@ public class SortedLinkedList {
     private int size;
 
     public Node dropDuplicates(){
-        if(head!=null){
-            Node prev=head;
             Node current=head.next;
             while(current!=null){
-                if(prev.data== current.data){
-                    prev.next=current.next;
-                    current=current.next;
-                }else{
-                    prev=current;
-                    current=current.next;
+                Node nextTmp=current;
+                while(nextTmp!=null && current.data==nextTmp.data){
+                    nextTmp=nextTmp.next;
                 }
+                current.next=nextTmp;
+                current=current.next;
             }
-        }
         return head;
     }
     public Node insert(int input){
