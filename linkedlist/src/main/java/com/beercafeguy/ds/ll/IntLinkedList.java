@@ -12,6 +12,23 @@ public class IntLinkedList {
         this.size = 0;
     }
 
+    public void dedupe(){
+        if(head!=null){
+            Set<Integer> hashSet=new HashSet<>();
+            Node prev=null;
+            Node current=head;
+            while(current!=null){
+                if(hashSet.contains(current.data)){
+                    prev.next=current.next;
+                }else{
+                    hashSet.add(current.data);
+                    prev=current;
+                }
+                current=current.next;
+            }
+        }
+    }
+
     public void reverse(){
         Node previous=null;
         Node current=head;
