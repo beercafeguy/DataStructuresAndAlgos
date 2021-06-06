@@ -17,6 +17,7 @@
         <module>restart</module>
         <module>common-problems</module>
         <module>linkedlist</module>
+        <module>LaforeBook</module>
     </modules>
 
     <properties>
