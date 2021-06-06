@@ -1,8 +1,8 @@
 package com.beercafeguy.study.ds.ll;
 
 public class SimpleNode <T>{
-    T data;
-    SimpleNode<T> next;
+    public T data;
+    public SimpleNode<T> next;
 
     public SimpleNode(T data) {
         this.data = data;

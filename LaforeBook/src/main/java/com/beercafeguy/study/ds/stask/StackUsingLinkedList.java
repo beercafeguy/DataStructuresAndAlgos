@@ -1,22 +1,28 @@
 package com.beercafeguy.study.ds.stask;
 
+import com.beercafeguy.study.ds.ll.GenericSinglyLinkedList;
 import com.beercafeguy.study.ds.ll.NodeLinkedList;
+import com.beercafeguy.study.ds.ll.SimpleNode;
 
-public class StackUsingLinkedList <Long> implements IStack<Long>{
+public class StackUsingLinkedList <T> implements IStack<T>{
 
-    private NodeLinkedList data;
+    private GenericSinglyLinkedList<T> data;
 
     public StackUsingLinkedList() {
-        data=new NodeLinkedList();
+        data=new GenericSinglyLinkedList();
     }
 
     @Override
-    public void push(Long aLong) {
-
+    public void push(T aLong) {
+        data.insertAtHead(aLong);
     }
 
     @Override
-    public Long pop() {
+    public T pop() {
+        SimpleNode<T> popped=data.deleteFromHead();
+        if(popped!=null){
+            return popped.data;
+        }
         return null;
     }
 }
