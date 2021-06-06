@@ -3,7 +3,7 @@ package com.beercafeguy.study.ds.stask;
 import java.util.Arrays;
 import java.util.Objects;
 
-public class StackUsingArray<T> {
+public class StackUsingArray<T> implements IStack<T>{
 
     private Object[] data;
     private int index;
