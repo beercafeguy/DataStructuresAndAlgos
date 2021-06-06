@@ -10,6 +10,29 @@ public class NodeLinkedList {
         size = 0;
     }
 
+    public Node delete(int key) {
+        Node result = null;
+        if(head!=null && head.integerData==key){
+            Node tmp=head;
+            head=head.next;
+            size--;
+            result=tmp;
+        }else{
+            Node prev=head;
+            Node current = head.next;
+            while (current!= null) {
+                if (current.integerData == key) {
+                    prev.next=current.next;
+                    result = current;
+                    break;
+                }
+                prev=current;
+                current = current.next;
+            }
+        }
+        return result;
+    }
+
     /*
     public Node find(int key) {
         Node result = null;

@@ -4,7 +4,18 @@ public class NodeLinkedListApp {
     public static void main(String[] args) {
 
         //insertAndPrint();
-        insertAndFind();
+        //insertAndFind();
+        insertAndDelete();
+    }
+
+    private static void insertAndDelete() {
+        NodeLinkedList nodeLinkedList=new NodeLinkedList();
+        nodeLinkedList.insertAtHead(10,340.0d);
+        nodeLinkedList.insertAtHead(11,342.5d);
+        nodeLinkedList.insertAtTail(30,234.7d);
+        nodeLinkedList.displayList();
+        nodeLinkedList.delete(11);
+        nodeLinkedList.displayList();
     }
 
     private static void insertAndFind() {
