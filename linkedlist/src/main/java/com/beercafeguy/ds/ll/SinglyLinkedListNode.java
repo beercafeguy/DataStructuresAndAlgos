@@ -9,6 +9,9 @@ public class SinglyLinkedListNode<T>{
         next=null;
     }
 
+    public SinglyLinkedListNode() {
+    }
+
     @Override
     public String toString() {
         return "SinglyLinkedListNode{" +

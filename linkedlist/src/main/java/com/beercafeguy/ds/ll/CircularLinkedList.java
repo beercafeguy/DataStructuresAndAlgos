@@ -12,6 +12,38 @@ public class CircularLinkedList<T>{
         this.size = 0;
     }
 
+    public void delete(T t){
+        //if we have only one node and that matches delete key
+        if(head!=null && size==1 && head.data==t){
+            head=null;
+            size--;
+        }else{ // if we have more then one nodes
+            SinglyLinkedListNode<T> prev=null;
+            SinglyLinkedListNode<T> current=head;
+            while(current.data!=t){
+                if(current.next==head){
+                    break; // we reached tail and could not find a match
+                }
+                prev=current;
+                current=current.next;
+            }
+
+            // case 1: if head matches the key
+            if(current==head){
+                SinglyLinkedListNode<T> tmp=head;
+                while(tmp.next!=head){
+                    tmp=tmp.next;
+                }
+                tmp.next=current.next;
+                head=current.next;
+                size--;
+            }else if(current.data==t){
+                prev.next=current.next;
+                size--;
+            }
+        }
+    }
+
     public void print(){
         SinglyLinkedListNode<T> current=head;
         if(head!=null){ //if head is null then LL is empty so nothing to print
