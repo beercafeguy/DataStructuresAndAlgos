@@ -1,5 +1,7 @@
 package com.beercafeguy.study.ds.ll;
 
+import java.util.Objects;
+
 public class Node {
     public Integer integerData;
     public Double doubleData;
@@ -21,4 +23,5 @@ public class Node {
                 ", doubleData=" + doubleData +
                 '}';
     }
+
 }
