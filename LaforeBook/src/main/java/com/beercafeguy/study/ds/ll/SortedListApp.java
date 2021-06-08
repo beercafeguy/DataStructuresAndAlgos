@@ -20,11 +20,11 @@ public class SortedListApp {
     static void sortedListInsertionSort(){
         SortedList sortedList=new SortedList();
         Double[] inputArray={20.2d,26.3d,11.23d,11.44d,11.23d};
+        System.out.println("Unsorted Array:"+Arrays.toString(inputArray));
         Arrays.stream(inputArray)
                 .forEach(x -> sortedList.insert(x));
-        sortedList.printList();
         Double[] outputArray= sortedList.toArray();
-        System.out.println(Arrays.toString(outputArray));
+        System.out.println("Sorted Array:"+Arrays.toString(outputArray));
 
     }
 }
