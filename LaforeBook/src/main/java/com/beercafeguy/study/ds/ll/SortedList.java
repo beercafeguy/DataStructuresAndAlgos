@@ -53,4 +53,16 @@ public class SortedList {
     public int size(){
         return size;
     }
+
+    public Double[] toArray(){
+        Double[] arr=new Double[size];
+        int index=0;
+        SimpleNode<Double> current=head;
+        while(index<size){
+            arr[index]=current.data;
+            current=current.next;
+            index++;
+        }
+        return arr;
+    }
 }

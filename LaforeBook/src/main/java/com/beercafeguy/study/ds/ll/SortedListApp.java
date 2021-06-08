@@ -1,8 +1,11 @@
 package com.beercafeguy.study.ds.ll;
 
+import java.util.Arrays;
+
 public class SortedListApp {
     public static void main(String[] args) {
-        performOps();
+        sortedListInsertionSort();
+        //performOps();
     }
 
     private static void performOps(){
@@ -12,5 +15,16 @@ public class SortedListApp {
         sortedList.insert(22.5d);
         sortedList.printList();
         System.out.println("Size of list:"+sortedList.size());
+    }
+
+    static void sortedListInsertionSort(){
+        SortedList sortedList=new SortedList();
+        Double[] inputArray={20.2d,26.3d,11.23d,11.44d,11.23d};
+        Arrays.stream(inputArray)
+                .forEach(x -> sortedList.insert(x));
+        sortedList.printList();
+        Double[] outputArray= sortedList.toArray();
+        System.out.println(Arrays.toString(outputArray));
+
     }
 }

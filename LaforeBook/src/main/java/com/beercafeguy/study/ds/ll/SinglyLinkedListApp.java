@@ -1,5 +1,7 @@
 package com.beercafeguy.study.ds.ll;
 
+import java.util.Arrays;
+
 public class SinglyLinkedListApp {
     public static void main(String[] args) {
 
@@ -15,4 +17,6 @@ public class SinglyLinkedListApp {
         ll.deleteFromHead();
         ll.display();
     }
+
+
 }
