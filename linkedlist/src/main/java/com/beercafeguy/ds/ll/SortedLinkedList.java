@@ -17,6 +17,7 @@ public class SortedLinkedList {
             }
         return head;
     }
+
     public Node insert(int input){
         Node inputNode=new Node(input);
         if(head==null){
