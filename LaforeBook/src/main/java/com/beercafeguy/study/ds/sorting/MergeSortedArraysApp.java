@@ -5,17 +5,20 @@ import java.util.Arrays;
 public class MergeSortedArraysApp {
 
     public static void main(String[] args) {
-        mergeSortedArrays();
-    }
-
-    private static void mergeSortedArrays() {
         int[] arrA={10,15,25,55};
         int[] arrB={7,11,19,58,60};
 
         int lengthA=arrA.length;
         int lengthB=arrB.length;
         int[] target=new int[lengthA+lengthB];
+        int[] result=mergeSortedArrays(arrA,lengthA,arrB,lengthB,target);
+        printArr(result);
+    }
 
+    private static int[] mergeSortedArrays(int[] arrA,int lengthA,
+                                          int[] arrB,int lengthB,
+                                          int[] target
+                                          ){
         int aIndex=0,bIndex=0,cIndex=0;
         while(aIndex<lengthA && bIndex <lengthB){
             if(arrA[aIndex]<arrB[bIndex]){
@@ -30,7 +33,7 @@ public class MergeSortedArraysApp {
         while(bIndex<lengthB){
             target[cIndex++]=arrB[bIndex++];
         }
-        printArr(target);
+        return target;
     }
 
     private static void printArr(int[] arr){
