@@ -1,5 +1,7 @@
 package com.beercafeguy.study.ds.array;
 
+import java.util.Arrays;
+
 public class BinarySearchApp {
 
     public static void main(String[] args) {
@@ -11,7 +13,21 @@ public class BinarySearchApp {
 
     }
 
-    private static boolean binarySearchRecursion(int lower,int upper,int key) {
+    public static boolean binarySearchRecursion(int[] input,int lower,int upper,int key) {
+        int currentIndex=(lower+upper)/2;
+        if(input[currentIndex]==key){
+            return true;
+        }else if (lower>upper){
+            return false;
+        }else if(input[currentIndex]> key){
+            return binarySearchRecursion(Arrays.copyOfRange(input,lower,currentIndex),lower,currentIndex-1,key);
+        }else if(input[currentIndex]<key){
+            return binarySearchRecursion(Arrays.copyOfRange(input,currentIndex+1,upper),currentIndex+1,upper,key);
+        }
+        return false;
+    }
+
+    public static boolean binarySearchRecursion(int lower,int upper,int key) {
         int[] input={1,10,20,44,55,123,155};
         int currentIndex=(lower+upper)/2;
         if(input[currentIndex]==key){
@@ -26,7 +42,7 @@ public class BinarySearchApp {
         return false;
     }
 
-    private static boolean binarySearchLoop(int key) {
+    public static boolean binarySearchLoop(int key) {
 
         int[] input={1,10,20,44,55,123,155};
         int lower=0;
