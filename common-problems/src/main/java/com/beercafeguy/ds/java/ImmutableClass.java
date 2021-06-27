@@ -10,7 +10,7 @@ public class ImmutableClass{
         map.put("A",2);
         ImmutableClassDefinition im=new ImmutableClassDefinition("Hem",map);
         System.out.println(im.getMetadata().get("A"));
-        map.put("A",5);
+        map.put("A",5);System.out.println(im.getMetadata().get("A"));
         System.out.println(im.getMetadata().get("A"));
     }
 }
