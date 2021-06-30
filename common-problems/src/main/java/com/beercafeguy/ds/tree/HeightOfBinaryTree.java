@@ -1,6 +1,7 @@
 package com.beercafeguy.ds.tree;
 
-public class LeafNodesBinaryTree {
+
+public class HeightOfBinaryTree {
 
     public static void main(String[] args) {
 
@@ -17,6 +18,8 @@ public class LeafNodesBinaryTree {
         binaryTree.printLeafNodes();
 
         System.out.println(binaryTree.countLeafNodes());
+        System.out.println();
+        System.out.println(binaryTree.height());
     }
 
 
