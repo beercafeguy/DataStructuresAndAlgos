@@ -17,6 +17,29 @@ public class MyList {
         }
     }
 
+    public void deleteDuplicates(){
+        deleteDuplicates(head);
+    }
+
+    private ListNode deleteDuplicates(ListNode passedHead) {
+        if(passedHead==null || passedHead.next==null){
+            return passedHead;
+        }else{
+            ListNode current=head;
+
+            while (current!=null){
+                ListNode tmp=current.next;
+                while(tmp!=null && tmp.val==current.val){
+                    tmp =tmp.next; // removed nodes till the last working du-licate is available
+                }
+                current.next=tmp;
+                current=current.next;
+            }
+            return passedHead;
+        }
+    }
+
+
     public void display(){
         ListNode current=head;
         while (current != null){
