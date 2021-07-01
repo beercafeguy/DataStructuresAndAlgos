@@ -44,6 +44,14 @@ public class ConcurrentHashMapApp {
             }
         }
 
+        //no exception
+        for(Map.Entry<Integer,String> entry:concurrentMap.entrySet()){
+            if(entry.getKey()==3){
+                concurrentMap.remove(4);
+            }
+            System.out.println(entry.getKey()+" : "+ entry.getValue());
+        }
+
         for(Map.Entry<Integer,String> entry:concurrentMap.entrySet()){
             System.out.println(entry.getKey()+" : "+ entry.getValue());
         }
