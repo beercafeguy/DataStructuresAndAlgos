@@ -1,5 +1,7 @@
 package com.beercafeguy.ds.tree;
 
+import java.util.ArrayList;
+
 public class BinaryTree{
 
     IntTreeNode root;
@@ -22,6 +24,17 @@ public class BinaryTree{
             }else{
                 return rightHeight+1;
             }
+        }
+    }
+
+    public ArrayList<Integer> leftView(IntTreeNode passedRoot){
+
+        ArrayList<Integer> result=new ArrayList<>();
+        if(passedRoot==null){
+            return result;
+        }else {
+            result.add(passedRoot.data);
+            return leftView(passedRoot.left);
         }
     }
 
