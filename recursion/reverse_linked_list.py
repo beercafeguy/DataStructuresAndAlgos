@@ -44,6 +44,22 @@ class SimpleLinkedList:
             current = next_element
         
         self.head = previous
+    
+
+    def _reverse_recursive(self, head_node):
+        if (head_node == None) or (head_node.next == None):
+            return head_node
+
+        reversed_remaining = self._reverse_recursive(head_node.next)
+        head_node.next.next = head_node
+        head_node.next = None
+        return reversed_remaining
+            
+
+
+    def reverse_recursive(self):
+        self.head = self._reverse_recursive(self.head)
+
          
         
 
@@ -88,6 +104,8 @@ sll.insert(5)
 
 sll.print()
 sll.reverse_iterative()
+sll.print()
+sll.reverse_recursive()
 sll.print()
 
 #sll.reverse_iterative()
