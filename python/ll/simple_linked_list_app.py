@@ -44,6 +44,41 @@ class SimpleLinkedList:
             current.next = new_node
         self.length+=1
 
+    def delete_first_element(self):
+        if self.length == 0:
+            print("List is empty")
+        else:
+            self.head = self.head.next
+            self.length-=1
+    
+    def delete_last_element(self):
+        if self.length == 0:
+            print("List is empty")
+        else:
+            current = self.head
+            prev = self.head
+            while current.next:
+                prev = current
+                current = current.next
+            prev.next = None
+            self.tail = prev
+            self.length-=1
+
+    def delete_value(self, value):
+        current = self.head
+        prev = self.head
+
+        while current.next != None or current.value != value:
+            if current.value == value:
+                prev.next = current.next
+                self.length -=1
+                return
+            else:
+                prev = current
+                current = current.next
+        print(f"{value} is not present in list")
+        
+
 
     
     def print(self):
@@ -56,6 +91,7 @@ class SimpleLinkedList:
             result.append(current.value)
             current = current.next
         return result
+
     
 
 
@@ -68,6 +104,12 @@ def main():
     ll.insert_at_start(12)
     ll.insert_at_given_position(3, 34)
     
+    ll.print()
+    ll.delete_first_element()
+    ll.delete_last_element()
+    ll.print()
+    ll.delete_value(7)
+    ll.delete_value(41)
     ll.print()
 
 main()
