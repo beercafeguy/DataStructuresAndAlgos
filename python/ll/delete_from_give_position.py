@@ -27,25 +27,6 @@ def deleteNode(llist, position):
             print("Position is outside window")
         return llist
 
-def insertNodeAtPosition(llist, data, position):
-    new_node = SinglyLinkedListNode(data)
-    if not llist:
-        llist = new_node
-        return llist
-    else:
-        current = llist
-        i = 0
-        while i < (position -1) and current:
-            current = current.next
-            i+=1
-        if current:
-            tmp = current.next
-            current.next = new_node
-            new_node.next = tmp
-        else:
-            print("Position is outside window")
-        return llist
-
 
 
 def create_ll_from_list(arr):
@@ -69,15 +50,6 @@ def list_from_ll(head_node):
         result.append(current.data)
         current = current.next
     return result
-
-
-initial_list = [1,2,3,4,5]
-ll_head = create_ll_from_list(initial_list)
-
-ll_head = insertNodeAtPosition(ll_head, 20, 6)
-#print(ll_head)
-list_back = list_from_ll(ll_head)
-print(list_back)
 
 
 test_list = [20, 6, 2, 19, 7, 4, 15, 9]
