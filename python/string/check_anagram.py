@@ -1,5 +1,7 @@
 
-def are_anagram(str1, str2):
+def are_anagram(s, t):
+    str1 = s
+    str2 = t
     holder = dict()
     for ch in str1:
         if ch in holder:
