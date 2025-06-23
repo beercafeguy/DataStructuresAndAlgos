@@ -15,6 +15,20 @@ class BasicBST:
         self.root = None
 
 
+    def find_recursive(self, value):
+        return self._find_recursive(self.root, value)
+    
+    def _find_recursive(self, root, value):
+        if root == None:
+            return None
+        elif value == root.value:
+            return root
+        elif value < root.value:
+            return self._find_recursive(root.left, value)
+        else:
+            return self._find_recursive(root.right, value)
+        
+
     def find(self, value):
         if not self.root:
             return None
@@ -103,6 +117,8 @@ print(bst_app.traverse_pre_order())
 
 print(bst_app.find(15))
 print(bst_app.find(16))
+print(bst_app.find_recursive(10))
+print(bst_app.find_recursive(55))
 
 
 """
