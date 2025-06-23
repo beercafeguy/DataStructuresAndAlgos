@@ -14,6 +14,31 @@ class BasicBST:
     def __init__(self):
         self.root = None
 
+    def get_max(self):
+        current = self.root
+        while current.right:
+            current = current.right
+        
+        return current.value
+
+    def get_min(self):
+        current = self.root
+        while current.left:
+            current = current.left
+        
+        return current.value
+    
+    def get_max_recursive(self):
+        def helper(root):
+            if root.right == None:
+                return root.value
+            else:
+                return helper(root.right)
+        
+        if self.root == None:
+            return None
+        else:
+            return helper(self.root)
 
     def find_recursive(self, value):
         return self._find_recursive(self.root, value)
@@ -120,6 +145,10 @@ print(bst_app.find(16))
 print(bst_app.find_recursive(10))
 print(bst_app.find_recursive(55))
 
+
+print(bst_app.get_max())
+print(bst_app.get_max_recursive())
+print(bst_app.get_min())
 
 """
 root = TreeNode(10)
