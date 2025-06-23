@@ -15,7 +15,20 @@ class BasicBST:
         self.root = None
 
 
-
+    def find(self, value):
+        if not self.root:
+            return None
+        else:
+            current = self.root
+            while current:
+                if current.value == value:
+                    return current
+                elif value < current.value:
+                    current = current.left
+                else:
+                    current = current.right
+            return None
+    
     def _traverse_pre_order(self, _root):
         if _root:
             return [_root.value] + self._traverse_pre_order(_root.left) + self._traverse_pre_order(_root.right) 
@@ -87,6 +100,9 @@ bst_app.insert_recursive(15)
 
 print(bst_app.traverse_in_order())
 print(bst_app.traverse_pre_order())
+
+print(bst_app.find(15))
+print(bst_app.find(16))
 
 
 """
