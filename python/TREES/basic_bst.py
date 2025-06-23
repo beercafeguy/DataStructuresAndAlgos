@@ -15,6 +15,16 @@ class BasicBST:
         self.root = None
 
 
+
+    def _traverse_pre_order(self, _root):
+        if _root:
+            return [_root.value] + self._traverse_pre_order(_root.left) + self._traverse_pre_order(_root.right) 
+        else:
+            return []
+    
+    def traverse_pre_order(self):
+        return self._traverse_pre_order(self.root)
+
     def _traverse_in_order(self, _root):
         result = []
 
@@ -71,10 +81,15 @@ bst_app = BasicBST()
 bst_app.insert(10)
 bst_app.insert(20)
 bst_app.insert_recursive(5)
+bst_app.insert(6)
+bst_app.insert_recursive(15)
 
 
 print(bst_app.traverse_in_order())
+print(bst_app.traverse_pre_order())
 
+
+"""
 root = TreeNode(10)
 root.left = TreeNode(5)
 root.right = TreeNode(15)
@@ -93,3 +108,5 @@ def inorder_traverse(_root):
     return result
 
 print(inorder_traverse(root))
+
+"""
